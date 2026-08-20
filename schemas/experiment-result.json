@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExperimentResult",
+  "type": "object",
+  "properties": {
+    "experiment_id": { "type": "string" },
+    "execution_id": { "type": "string" },
+    "raw_observations": {
+      "type": "object",
+      "properties": {
+        "control_conversions": { "type": "integer" },
+        "control_total": { "type": "integer" },
+        "variant_conversions": { "type": "integer" },
+        "variant_total": { "type": "integer" },
+        "guardrails_raw": { "type": "object" }
+      },
+      "required": ["control_conversions", "control_total", "variant_conversions", "variant_total"]
+    },
+    "calculated_metrics": {
+      "type": "object",
+      "properties": {
+        "control_conversion_rate": { "type": "number" },
+        "variant_conversion_rate": { "type": "number" },
+        "absolute_lift": { "type": "number" },
+        "relative_lift": { "type": "number" },
+        "guardrail_rates": { "type": "object" }
+      },
+      "required": ["control_conversion_rate", "variant_conversion_rate", "absolute_lift", "relative_lift"]
+    },
+    "result_classification": {
+      "type": "string",
+      "enum": ["CLEAR WIN", "PROMISING", "INCONCLUSIVE", "WEAK", "FAILURE", "INVALID"]
+    },
+    "statistical_assessment": {
+      "type": "object",
+      "properties": {
+        "z_score": { "type": "number" },
+        "p_value": { "type": "number" },
+        "confidence_interval": {
+          "type": "array",
+          "items": { "type": "number" }
+        },
+        "statistical_significance": { "type": "boolean" },
+        "operational_signal": { "type": "string" }
+      }
+    },
+    "ai_interpretation": {
+      "type": "object",
+      "properties": {
+        "interpretation": { "type": "string" },
+        "contextual_factors": { "type": "array", "items": { "type": "string" } },
+        "alternative_explanations": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["interpretation"]
+    },
+    "learning_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "decision_recommendation": {
+      "type": "object",
+      "properties": {
+        "recommendation": {
+          "type": "string",
+          "enum": ["SCALE", "ITERATE", "PIVOT", "CONTINUE", "HOLD", "KILL"]
+        },
+        "reasoning": { "type": "string" }
+      },
+      "required": ["recommendation", "reasoning"]
+    }
+  },
+  "required": [
+    "experiment_id",
+    "execution_id",
+    "raw_observations",
+    "calculated_metrics",
+    "result_classification",
+    "ai_interpretation",
+    "decision_recommendation"
+  ]
+}
