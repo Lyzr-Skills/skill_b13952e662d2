@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learning",
+  "type": "object",
+  "properties": {
+    "learning_id": { "type": "string" },
+    "observation": { "type": "string" },
+    "interpretation": { "type": "string" },
+    "evidence": { "type": "string" },
+    "confidence": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW"]
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "audience": { "type": "string" },
+        "channels": { "type": "array", "items": { "type": "string" } },
+        "geography": { "type": "array", "items": { "type": "string" } },
+        "segment": { "type": "string" }
+      },
+      "required": ["audience", "channels"]
+    },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "alternative_explanations": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "follow_up_experiment": { "type": "string" }
+  },
+  "required": [
+    "learning_id",
+    "observation",
+    "interpretation",
+    "evidence",
+    "confidence",
+    "scope"
+  ]
+}
