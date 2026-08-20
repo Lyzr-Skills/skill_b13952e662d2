@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExecutionData",
+  "type": "object",
+  "properties": {
+    "execution_id": { "type": "string" },
+    "experiment_id": { "type": "string" },
+    "current_sample_size": { "type": "integer" },
+    "target_sample_size": { "type": "integer" },
+    "started_at": { "type": "string" },
+    "updated_at": { "type": "string" },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": { "type": "string" },
+          "group": { "type": "string" },
+          "metric_id": { "type": "string" },
+          "value": { "type": "number" }
+        },
+        "required": ["timestamp", "group", "metric_id", "value"]
+      }
+    }
+  },
+  "required": ["execution_id", "experiment_id", "current_sample_size", "target_sample_size", "started_at"]
+}
