@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StatisticalAssessment",
+  "type": "object",
+  "properties": {
+    "operational_result": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "NEUTRAL"]
+    },
+    "statistical_confidence": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW", "INSUFFICIENT DATA"]
+    },
+    "z_score": { "type": "number" },
+    "p_value": { "type": "number" },
+    "confidence_interval": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 2,
+      "maxItems": 2
+    }
+  },
+  "required": ["operational_result", "statistical_confidence"]
+}
