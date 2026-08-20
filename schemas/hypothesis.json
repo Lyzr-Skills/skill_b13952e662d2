@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hypothesis",
+  "type": "object",
+  "properties": {
+    "hypothesis_id": { "type": "string" },
+    "if_statement": { "type": "string" },
+    "for_statement": { "type": "string" },
+    "then_statement": { "type": "string" },
+    "from_baseline": { "type": "string" },
+    "to_target": { "type": "string" },
+    "within_boundary": { "type": "string" }
+  },
+  "required": [
+    "hypothesis_id",
+    "if_statement",
+    "for_statement",
+    "then_statement",
+    "from_baseline",
+    "to_target",
+    "within_boundary"
+  ]
+}
