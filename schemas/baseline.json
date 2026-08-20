@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Baseline",
+  "type": "object",
+  "properties": {
+    "baseline_id": { "type": "string" },
+    "metric_id": { "type": "string" },
+    "value": {
+      "type": ["number", "string", "null"]
+    },
+    "historical_window_days": { "type": "integer" },
+    "range_min": { "type": "number" },
+    "range_max": { "type": "number" },
+    "is_unknown": { "type": "boolean" },
+    "assumptions_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["baseline_id", "metric_id", "is_unknown"]
+}
