@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExperimentVersion",
+  "type": "object",
+  "properties": {
+    "experiment_id": { "type": "string" },
+    "version": { "type": "string" },
+    "frozen_at": { "type": "string" },
+    "frozen_properties": {
+      "type": "object",
+      "properties": {
+        "hypothesis": { "type": "object" },
+        "primary_metric": { "type": "object" },
+        "success_threshold": { "type": "object" },
+        "failure_threshold": { "type": "object" },
+        "target_audience": { "type": "string" },
+        "experiment_design": { "type": "object" }
+      },
+      "required": ["hypothesis", "primary_metric", "success_threshold", "failure_threshold", "target_audience"]
+    },
+    "change_log_reason": { "type": "string" }
+  },
+  "required": ["experiment_id", "version", "frozen_at", "frozen_properties"]
+}
