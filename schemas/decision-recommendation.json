@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DecisionRecommendation",
+  "type": "object",
+  "properties": {
+    "experiment_id": { "type": "string" },
+    "recommendation": {
+      "type": "string",
+      "enum": ["SCALE", "ITERATE", "PIVOT", "CONTINUE", "HOLD", "KILL"]
+    },
+    "reason": { "type": "string" },
+    "next_action": { "type": "string" },
+    "follow_up_experiment_id": { "type": "string" },
+    "guardrails_status": {
+      "type": "object",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "failures": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["passed"]
+    }
+  },
+  "required": ["experiment_id", "recommendation", "reason", "next_action", "guardrails_status"]
+}
