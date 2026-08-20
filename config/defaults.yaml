@@ -1,0 +1,5 @@
+defaults:
+  duration_days: 14
+  confidence_level: 0.95
+  min_sample_size: 100
+  statistical_significance_required: false
