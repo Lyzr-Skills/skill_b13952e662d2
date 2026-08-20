@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ThresholdDefinition",
+  "type": "object",
+  "properties": {
+    "metric_id": { "type": "string" },
+    "operator": {
+      "type": "string",
+      "enum": [">=", "<=", ">", "<", "=="]
+    },
+    "value": { "type": "number" },
+    "severe_failure_value": { "type": "number" }
+  },
+  "required": ["metric_id", "operator", "value"]
+}
