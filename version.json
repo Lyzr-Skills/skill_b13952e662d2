@@ -1,0 +1,6 @@
+{
+  "name": "growth-experiment",
+  "version": "1.0.0",
+  "gtmos_compatibility": "^1.0.0",
+  "description": "Core growth experimentation and tracking skill for GTMOS."
+}
