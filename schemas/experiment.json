@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExperimentDefinition",
+  "type": "object",
+  "properties": {
+    "experiment_id": { "type": "string" },
+    "name": { "type": "string" },
+    "type": { "type": "string" },
+    "hypothesis_id": { "type": "string" },
+    "objective": { "type": "string" },
+    "target_audience": { "type": "string" },
+    "control": { "type": "string" },
+    "variant": { "type": "string" },
+    "variables": {
+      "type": "object",
+      "properties": {
+        "independent": { "type": "array", "items": { "type": "string" } },
+        "dependent": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "baseline_ref": { "type": "string" },
+    "primary_metric": { "$ref": "metric.json" },
+    "secondary_metrics": {
+      "type": "array",
+      "items": { "$ref": "metric.json" }
+    },
+    "guardrail_metrics": {
+      "type": "array",
+      "items": { "$ref": "metric.json" }
+    },
+    "success_threshold": { "$ref": "threshold.json" },
+    "failure_threshold": { "$ref": "threshold.json" },
+    "sample_target": { "type": "integer" },
+    "duration": { "type": "string" },
+    "budget": { "type": "number" },
+    "owner": { "type": "string" },
+    "depends_on": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "blocks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "status": { "type": "string" },
+    "decision_rules": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": [
+    "experiment_id",
+    "name",
+    "type",
+    "hypothesis_id",
+    "objective",
+    "target_audience",
+    "variant",
+    "primary_metric",
+    "success_threshold",
+    "failure_threshold",
+    "sample_target",
+    "duration",
+    "status"
+  ]
+}
