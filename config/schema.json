@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GrowthExperimentConfig",
+  "type": "object",
+  "properties": {
+    "defaults": {
+      "type": "object",
+      "properties": {
+        "duration_days": { "type": "integer" },
+        "confidence_level": { "type": "number" },
+        "min_sample_size": { "type": "integer" }
+      },
+      "required": ["duration_days", "confidence_level", "min_sample_size"]
+    },
+    "thresholds": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "number" },
+          "failure": { "type": "number" }
+        },
+        "required": ["success", "failure"]
+      }
+    }
+  },
+  "required": ["defaults", "thresholds"]
+}
