@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Assumption",
+  "type": "object",
+  "properties": {
+    "assumption_id": { "type": "string" },
+    "statement": { "type": "string" },
+    "value": { "type": "string" },
+    "source": { "type": "string" },
+    "classification": {
+      "type": "string",
+      "enum": ["ACTUAL", "BENCHMARK", "ESTIMATE", "HYPOTHESIS", "UNKNOWN"]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW"]
+    },
+    "impact": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW"]
+    }
+  },
+  "required": ["assumption_id", "statement", "classification", "confidence", "impact"]
+}
