@@ -1,0 +1,13 @@
+thresholds:
+  meeting_rate:
+    success: 0.06
+    failure: 0.03
+    severe_failure: 0.015
+  reply_rate:
+    success: 0.15
+    failure: 0.05
+    severe_failure: 0.02
+  unsubscribe_rate:
+    success: 0.005 # Less than is good, more than is a failure
+    failure: 0.02
+    severe_failure: 0.05
