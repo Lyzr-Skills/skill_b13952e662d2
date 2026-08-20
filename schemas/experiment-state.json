@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExperimentState",
+  "type": "object",
+  "properties": {
+    "experiment_id": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["DRAFT", "DESIGNED", "READY", "RUNNING", "PAUSED", "INVALIDATED", "COMPLETED", "ANALYZING", "ASSESSED", "DECISION_RECOMMENDED", "ARCHIVED"]
+    },
+    "started_at": { "type": ["string", "null"] },
+    "updated_at": { "type": "string" },
+    "progress": { "type": "number" },
+    "current_sample": { "type": "integer" },
+    "target_sample": { "type": "integer" },
+    "current_metrics": {
+      "type": "object",
+      "additionalProperties": { "type": "number" }
+    },
+    "blocking_conditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "last_transition": { "type": "string" },
+    "transition_reason": { "type": "string" }
+  },
+  "required": [
+    "experiment_id",
+    "status",
+    "updated_at",
+    "progress",
+    "current_sample",
+    "target_sample"
+  ]
+}
