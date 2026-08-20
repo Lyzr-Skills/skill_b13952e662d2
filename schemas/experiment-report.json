@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExperimentReport",
+  "type": "object",
+  "properties": {
+    "report_id": { "type": "string" },
+    "experiment_id": { "type": "string" },
+    "version": { "type": "string" },
+    "status": { "type": "string" },
+    "hypothesis": { "type": "object" },
+    "baseline": { "type": "object" },
+    "metrics_definition": { "type": "object" },
+    "execution_summary": { "type": "object" },
+    "results": { "$ref": "experiment-result.json" },
+    "learnings": {
+      "type": "array",
+      "items": { "$ref": "learning.json" }
+    },
+    "recommendation": { "$ref": "decision-recommendation.json" }
+  },
+  "required": ["report_id", "experiment_id", "version", "status", "results", "recommendation"]
+}
